@@ -47,6 +47,54 @@ php artisan serve
 # 6. Run tests
 php artisan test
 ```
+## Testing & Documentation
+
+### 🔵 Postman Collection
+
+**Option 1: Shared Link (Recommended)**
+Access the collection directly without importing:
+[Postman Shared Collection](https://mbithienzioka2019-8199979.postman.co/workspace/evans-mbithi's-Workspace~769348f0-6814-4231-81df-fc5ba8828d2a/collection/51855696-e6163e80-80ea-4e37-915d-5c7cb9f4b6d8?action=share)
+
+**Option 2: Import Locally**
+1. Clone the repository
+2. Open Postman Web
+3. Click **Import** → Select `Backend_API.postman_collection.json` from root directory
+4. All 13 endpoints organized in Auth and Products folders
+
+**Authentication Setup:**
+1. Click **Login** request → Click **Send**
+2. Token automatically saves to `{{token}}` environment variable
+3. All protected endpoints now work automatically
+
+**Base URL:** `http://127.0.0.1:8000` (pre-configured in collection)
+
+---
+
+### 📚 Swagger/OpenAPI Documentation
+
+Interactive API documentation available locally:
+
+**URL:** `http://127.0.0.1:8000/api/documentation`
+
+**To Access:**
+```bash
+# 1. Install and run the project
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+php artisan serve
+
+# 2. Open browser: http://127.0.0.1:8000/api/documentation
+```
+
+**Features:**
+- ✅ Interactive endpoint testing
+- ✅ Request/response examples
+- ✅ Schema documentation
+- ✅ Bearer token authorization
+- ✅ All 13 endpoints documented (Auth + Products)
+
 
 ## API Endpoints
 
