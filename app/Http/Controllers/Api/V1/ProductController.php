@@ -19,9 +19,6 @@ class ProductController
 {
     use AuthorizesRequests;
 
-    /**
-     * Get paginated list of products.
-     */
     public function index(Request $request)
     {
         $query = QueryBuilder::for(Product::class)
@@ -60,9 +57,6 @@ class ProductController
         ], Response::HTTP_OK);
     }
 
-    /**
-     * Get single product by ID.
-     */
     public function show(Product $product)
     {
         $product->load('creator');
@@ -72,9 +66,6 @@ class ProductController
         ], Response::HTTP_OK);
     }
 
-    /**
-     * Create a new product.
-     */
     public function store(Request $request, CreateProductAction $action)
     {
         $this->authorize('create', Product::class);
@@ -97,9 +88,6 @@ class ProductController
         ], Response::HTTP_CREATED);
     }
 
-    /**
-     * Update a product.
-     */
     public function update(Request $request, Product $product, UpdateProductAction $action)
     {
         $this->authorize('update', $product);
@@ -122,9 +110,6 @@ class ProductController
         ], Response::HTTP_OK);
     }
 
-    /**
-     * Delete a product.
-     */
     public function destroy(Product $product, DeleteProductAction $action)
     {
         $this->authorize('delete', $product);
@@ -134,9 +119,6 @@ class ProductController
         return response()->json([], Response::HTTP_NO_CONTENT);
     }
 
-    /**
-     * Upload product thumbnail.
-     */
     public function uploadThumbnail(Request $request, Product $product, UploadThumbnailAction $action)
     {
         $this->authorize('uploadThumbnail', $product);

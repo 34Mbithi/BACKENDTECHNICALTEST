@@ -10,9 +10,6 @@ use Illuminate\Http\Response;
 
 class AuthController
 {
-    /**
-     * Login endpoint.
-     */
     public function login(Request $request, LoginAction $loginAction)
     {
         $validated = $request->validate([
@@ -28,9 +25,6 @@ class AuthController
         ], Response::HTTP_OK);
     }
 
-    /**
-     * Logout endpoint.
-     */
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
@@ -40,9 +34,6 @@ class AuthController
         ], Response::HTTP_OK);
     }
 
-    /**
-     * Get current user profile.
-     */
     public function me(Request $request)
     {
         return response()->json([
